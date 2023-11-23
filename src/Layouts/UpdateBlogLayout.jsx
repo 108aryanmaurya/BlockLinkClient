@@ -6,7 +6,6 @@ import AuthContext from "../Helper/Context/AuthContext";
 import { useLocation, useParams } from "react-router";
 import blogContext from "../Helper/Context/blogContext";
 import UpdateBlog from "../Pages/updateBlog";
-
 // toast.configure();
 const UpdateBlogLayout = () => {
   const context2 = useContext(AuthContext);
