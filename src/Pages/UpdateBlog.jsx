@@ -1,5 +1,4 @@
 import { useState, useContext, useEffect } from "react";
-import TinyMCEEditor from "../Helper/Editor";
 import blogContext from "../Helper/Context/blogContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

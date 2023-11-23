@@ -1,9 +1,6 @@
-import { useContext, useEffect, useState } from "react";
-import getUniqueID from "../Helper/getUniqueID";
+import { useContext, useEffect, useParams } from "react";
 
-import WriteBlogPage from "../Pages/WriteBlogPage";
 import AuthContext from "../Helper/Context/AuthContext";
-import { useLocation, useParams } from "react-router";
 import blogContext from "../Helper/Context/blogContext";
 import UpdateBlog from "../Pages/updateBlog";
 // toast.configure();
