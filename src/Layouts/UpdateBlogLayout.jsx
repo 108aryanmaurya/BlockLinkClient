@@ -2,7 +2,8 @@ import { useContext, useEffect, useParams } from "react";
 
 import AuthContext from "../Helper/Context/AuthContext";
 import blogContext from "../Helper/Context/blogContext";
-import UpdateBlog from "../Pages/updateBlog.jsx";
+import UpdateBlog from "../Pages/UpdateBlog";
+UpdateBlog;
 // toast.configure();
 const UpdateBlogLayout = () => {
   const context2 = useContext(AuthContext);
