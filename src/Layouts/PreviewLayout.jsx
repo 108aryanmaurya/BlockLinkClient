@@ -8,7 +8,7 @@ const PreviewLayout = () => {
     const UserID = JSON.parse(localStorage.getItem("UserData")).UserID;
     const func = async () => {
       const response1 = await fetch(
-        `https://bloglinkbackend-it3i.onrender.com/api/auth/getCurrentUserDetails/${UserID}`,
+        `http://localhost:5001/api/auth/getCurrentUserDetails/${UserID}`,
         {
           method: "GET",
           headers: {
