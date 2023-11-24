@@ -49,17 +49,20 @@ export default function Comments({ blog }) {
     <>
       <section
         id="comment"
-        className="bg-slate-50 w-full  dark:bg-transparent  py-8 lg:py-16 antialiased"
+        className="bg-slate-50 w-full   dark:bg-transparent  py-8 lg:py-16 antialiased"
       >
         <div className="w-full mx-auto px-4">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
+          <div className="flex justify-between items-center max-sm:mb-2 mb-6">
+            <h2 className="text-lg lg:text-2xl max-sm:text-[17px] font-bold text-gray-900 dark:text-white">
               Comments
             </h2>
           </div>
 
           <form>
-            <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-darkBgPrimary dark:border-gray-700">
+            <div
+              className="max-sm:rounded-md max-sm:px-2 max-sm:py-1 py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 
+            max-sm:mb-1 dark:bg-darkBgPrimary dark:border-gray-700"
+            >
               <label className="sr-only">Your comment</label>
               <textarea
                 id="comment"
@@ -77,9 +80,9 @@ export default function Comments({ blog }) {
 
             <button
               // type="submit"
-              className={`mb-6 ${
+              className={`mb-6 max-sm:mb-0 ${
                 AuthStatus ? "block" : "hidden"
-              } border-2 border-slate-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-400   rounded-md bg-primaryMain dark:bg-secondary px-4 py-1 font-semibold text-white`}
+              } border-2 border-slate-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-400    rounded-md bg-primaryMain dark:bg-secondary max-sm:px-[8px] max-sm:py-[5px] max-sm:text-[13px] px-4 py-1 font-semibold text-white`}
               onClick={(e) => {
                 onsubmit(e);
               }}

@@ -92,7 +92,10 @@ const SingleBlog = ({ blog1, loading }) => {
             {loading ? <RightSectionSkeleton /> : <RightSection blog={blog1} />}
           </div>
         </div>
-        <div ref={commentSectionRef} className="w-[70%] mt-10 max-md:w-full">
+        <div
+          ref={commentSectionRef}
+          className="w-[70%] mt-10 max-sm:mt-0  max-md:w-full"
+        >
           <Comments blog={blog1} />
         </div>
       </section>

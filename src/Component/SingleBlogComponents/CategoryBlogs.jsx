@@ -6,7 +6,7 @@ const CategoryBlogs = ({ blog }) => {
   return (
     <>
       <li
-        className="py-3 sm:py-4 hover:bg-gray-100 dark:hover:bg-darkBgPrimary px-2 cursor-pointer"
+        className="py-3 max-sm:py-2 sm:py-4 hover:bg-gray-100 dark:hover:bg-darkBgPrimary px-2 cursor-pointer"
         onClick={() => {
           navigate(`/blogs/${blog._id}`);
         }}

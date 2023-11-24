@@ -18,8 +18,8 @@ const RightSection = ({ blog }) => {
 
   return (
     <section className="flex flex-col justify-center items-center">
-      <div className="w-[90%] p-2 dark:border-gray-700">
-        <h5 className="text-xl w-full my-2 font-bold leading-none text-gray-900 dark:text-white">
+      <div className="w-[90%] p-2 max-sm:mt-2  dark:border-gray-700">
+        <h5 className="text-xl w-full my-2  max-sm:ml-2 font-bold leading-none text-gray-900 dark:text-white max-sm:text-[17px]">
           Similar Blogs
         </h5>
         <ul className="divide-y divide-gray-200 dark:divide-darkBorderAll">
