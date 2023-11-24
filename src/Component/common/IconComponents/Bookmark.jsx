@@ -73,7 +73,7 @@ const Bookmark = ({ setbookmarked, card }) => {
           Bookmarked
             ? "text-primaryMain dark:text-primaryMain fa fa-bookmark"
             : " fa fa-bookmark-o dark:text-white"
-        } hover:text-primaryMain  text-[16px] `}
+        } hover:text-primaryMain  max-sm:text-[13px] text-[16px] `}
       ></i>
     </div>
   );

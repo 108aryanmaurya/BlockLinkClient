@@ -67,12 +67,12 @@ export default function LeftSection() {
       <div id="stars2"></div>
       <div id="stars3"></div>
       <div className=" flex flex-col w-full items-center z-30">
-        <div className="flex max-lg:flex-col justify-evenly items-center  w-full max-lg:ml-1">
-          <div className="flex mt-3  gap-1">
+        <div className="flex max-lg:flex-col justify-evenly items-center  w-full max-lg:ml-1 max-sm:text-[15px]">
+          <div className="flex mt-3 max-sm:mt-1  gap-1">
             <button
-              className={`${
+              className={` max-sm:rounded-sm  ${
                 AuthStatus ? "block" : "hidden"
-              } dark:text-white hover:bg-bgBlue dark:bg-darkBgPrimary dark:hover:bg-secondary  ${
+              } dark:text-white max-sm:p-0 max-sm:px-2  hover:bg-bgBlue dark:bg-darkBgPrimary dark:hover:bg-secondary  ${
                 filterState === "relevant" && "bg-bgBlue dark:bg-secondary"
               } p-1 px-3 rounded-md`}
               value="relevant"
@@ -93,9 +93,9 @@ export default function LeftSection() {
               Relevant
             </button>
             <button
-              className={`dark:text-white hover:bg-bgBlue dark:bg-darkBgPrimary dark:hover:bg-secondary  ${
+              className={`max-sm:rounded-sm dark:text-white hover:bg-bgBlue dark:bg-darkBgPrimary dark:hover:bg-secondary max-sm:p-0 max-sm:px-2   ${
                 filterState === "latest" && "bg-bgBlue dark:bg-secondary "
-              } p-1 px-3 rounded-md`}
+              } p-1 px-3  max-sm:p-0 max-sm:px-2   rounded-md`}
               value="latest"
               onClick={async (e) => {
                 setLoading(true);
@@ -116,7 +116,7 @@ export default function LeftSection() {
               Latest
             </button>
             <button
-              className={`dark:text-white hover:bg-bgBlue dark:bg-darkBgPrimary dark:hover:bg-secondary  ${
+              className={`max-sm:rounded-sm dark:text-white hover:bg-bgBlue dark:bg-darkBgPrimary dark:hover:bg-secondary  max-sm:p-0 max-sm:px-2  ${
                 filterState == "top" && "bg-bgBlue dark:bg-secondary "
               }  p-1 px-3 rounded-md`}
               value="top"
@@ -140,10 +140,10 @@ export default function LeftSection() {
           <div
             className={`${
               showMoreOption ? "block" : "hidden"
-            } flex max-lg:mt-3 gap-1 mt-3`}
+            } flex max-lg:mt-3 gap-1 max-sm:mt-1 mt-3`}
           >
             <button
-              className={`dark:text-white hover:bg-bgBlue dark:bg-darkBgPrimary dark:hover:bg-secondary  ${
+              className={`max-sm:rounded-sm dark:text-white hover:bg-bgBlue dark:bg-darkBgPrimary dark:hover:bg-secondary max-sm:p-0 max-sm:px-2   ${
                 Range === "week" && "bg-bgBlue dark:bg-secondary "
               }  p-1 px-3  rounded-md`}
               value="week"
@@ -166,7 +166,7 @@ export default function LeftSection() {
               Week
             </button>
             <button
-              className={`dark:text-white hover:bg-bgBlue dark:bg-darkBgPrimary dark:hover:bg-secondary  ${
+              className={`max-sm:rounded-sm dark:text-white max-sm:p-0 max-sm:px-2  hover:bg-bgBlue dark:bg-darkBgPrimary dark:hover:bg-secondary  ${
                 Range === "month" && "bg-bgBlue dark:bg-secondary "
               }  p-1 px-3 rounded-md`}
               value="month"
@@ -187,7 +187,7 @@ export default function LeftSection() {
               Month
             </button>
             <button
-              className={`dark:text-white hover:bg-bgBlue dark:bg-darkBgPrimary dark:hover:bg-secondary  ${
+              className={`max-sm:rounded-sm dark:text-white max-sm:p-0 max-sm:px-2  hover:bg-bgBlue dark:bg-darkBgPrimary dark:hover:bg-secondary  ${
                 Range === "year" && "bg-bgBlue dark:bg-secondary "
               }  p-1 px-3 rounded-md`}
               value="year"
@@ -208,7 +208,7 @@ export default function LeftSection() {
               Year
             </button>
             <button
-              className={`dark:text-white hover:bg-bgBlue dark:bg-darkBgPrimary dark:hover:bg-secondary  ${
+              className={`max-sm:rounded-sm dark:text-white max-sm:p-0 max-sm:px-2  hover:bg-bgBlue dark:bg-darkBgPrimary dark:hover:bg-secondary  ${
                 Range === "all" && "bg-bgBlue dark:bg-secondary "
               }  p-1 px-3 rounded-md`}
               value="all"
@@ -230,7 +230,7 @@ export default function LeftSection() {
             </button>
           </div>
         </div>
-        <div className="p-3 px-20 max-sm:px-2 flex flex-col w-full">
+        <div className="p-3 max-sm:p-1 px-24  max-sm:px-3   flex flex-col w-full">
           {loading
             ? Array.from({ length: 3 }, (_, index) => (
                 <BlogCardSkeleton key={index} />

@@ -11,7 +11,7 @@ export default function Tags({ tags }) {
           navigate(`/searchBy/tags/${tags}`);
         }}
       >
-        <a className="text-[14px] dark:text-white hover:text-primaryMain hover:underline font-semibold font-montserrat lowercase ml-2">
+        <a className="text-[14px] max-sm:text-[11.5px] dark:text-white hover:text-primaryMain hover:underline font-semibold font-montserrat lowercase ml-2">
           #{trimSpaces(tags)}
           <span> </span>
         </a>
@@ -19,3 +19,4 @@ export default function Tags({ tags }) {
     </>
   );
 }
+//

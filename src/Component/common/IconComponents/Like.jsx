@@ -65,7 +65,7 @@ const Like = ({ card }) => {
           liked
             ? "text-red-500 dark:text-red-500 fa fa-heart"
             : " fa fa-heart-o text-black dark:text-white"
-        }   text-[16px] `}
+        }   text-[16px] max-sm:text-[13px] `}
       ></i>
     </div>
   );

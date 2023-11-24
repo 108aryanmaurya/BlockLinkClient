@@ -103,7 +103,7 @@ export default function BlogCard({ card, isBookmark, isLiked }) {
           )}`}
         ></ShareModal>
       )}
-      <div className="md:w-[100%]  md:m-auto flex md:my-2 dark:bg-darkBgPrimary my-2 rounded-md bg-bgBlue flex-col p-6 pt-5 pb-2 w-[80%] max-lg:w-[100%] group max-sm:p-3">
+      <div className="md:w-[100%] max-sm:my-1  md:m-auto flex md:my-2 dark:bg-darkBgPrimary my-2 rounded-md bg-bgBlue flex-col  p-6 pt-5 pb-2 w-[80%] max-lg:w-[100%] group max-sm:p-2">
         <div className="max-lg:gap-2  gap-8 flex  justify-center ">
           <div className="w-[70%]">
             <div className="flex justify-between  items-center">
@@ -119,12 +119,12 @@ export default function BlogCard({ card, isBookmark, isLiked }) {
                           ? card?.author?.profileImg
                           : profileDefault
                       }
-                      className="border-[1px] border-purple-300 bg-white h-7 w-7  rounded-full object-cover object-top"
+                      className="border-[1px] border-purple-300 bg-white h-7 w-7  rounded-full object-cover object-top "
                       alt="img"
                     />
                     <div className="flex flex-row ml-2 max-lg:flex-col">
                       <p
-                        className="text-md cursor-pointer font-semibold font-palanquin text-gray-700 dark:text-darkTextMain"
+                        className="text-md cursor-pointer font-semibold font-palanquin text-gray-700  dark:text-darkTextMain max-sm:text-[13.6px]"
                         onClick={() => {
                           navigate(
                             `/profile/${card?.UserName?.replace(/\s+/g, "-")}`,
@@ -138,7 +138,7 @@ export default function BlogCard({ card, isBookmark, isLiked }) {
                         -
                       </span>
                       <p
-                        className="text-sm ml-1 max-lg:ml-0 font-semibold font-palanquin text-gray-500 dark:text-darkTextPrimary"
+                        className="text-sm ml-1 max-lg:ml-0 font-semibold font-palanquin text-gray-500 dark:text-darkTextPrimary max-sm:text-[12.6px] max-sm:mt-[-6px]"
                         onClick={() => {
                           navigate(`/searchBy/Date/${card?.Date}`);
                         }}
@@ -161,7 +161,7 @@ export default function BlogCard({ card, isBookmark, isLiked }) {
                 navigate(`/blogs/${card._id}`);
               }}
             >
-              <h3 className="theme-font-minor text-xl my-1 font-bold font-serif hover:text-primaryMain  dark:hover:text-secondary dark:text-darkTextMain  cursor-pointer max-sm:text-md capitalize max-sm:font-medium line-clamp-2 ">
+              <h3 className="theme-font-minor text-xl my-1 font-bold font-serif hover:text-primaryMain  dark:hover:text-secondary dark:text-darkTextMain  cursor-pointer max-sm:text-md capitalize max-sm:font-medium line-clamp-2  max-sm:text-[17px] ">
                 {card?.Title}
               </h3>
             </div>
@@ -205,7 +205,7 @@ export default function BlogCard({ card, isBookmark, isLiked }) {
               </div>
               <div className="absolute -top-1 -left-4 z-30">
                 <p
-                  className="text-[10px] uppercase bg-primaryMain text-darkTextMain dark:bg-secondary dark:text-darkTextMain  font-semibold tracking-widest px-4 rounded-md p-1"
+                  className="text-[10px] uppercase bg-primaryMain text-darkTextMain dark:bg-secondary dark:text-darkTextMain  font-semibold tracking-widest px-4 max-sm:px-2 max-sm:p-0 max-sm:rounded-sm max-sm:mt-1  rounded-md p-1 max-sm:font-normal"
                   onClick={() => {
                     navigate(`/searchBy/Category/${card?.Category}`);
                   }}
@@ -217,19 +217,19 @@ export default function BlogCard({ card, isBookmark, isLiked }) {
           </div>
         </div>
 
-        <div className="relative pb-1 flex justify-between items-center  flex-wrap w-full mt-1">
-          <div className="flex gap-3  items-center ">
+        <div className="relative pb-1 max-sm:mt-0 max-sm:pb-0  flex justify-between items-center  flex-wrap w-full mt-1">
+          <div className="flex gap-3  max-sm:gap-1 items-center ">
             {card?.tags?.slice(0, 2)?.map((tag, index) => (
               <Tags key={index} tags={tag} />
             ))}{" "}
           </div>
 
-          <div className="flex  items-center mr-1 mt-2">
+          <div className="flex  items-center mr-1 max-sm:mt-0  mt-2">
             <div className="mr-1 w-[100%] py-2 px-1 flex   items-center justify-center">
               <p className="text-xs  text-gray-700 dark:text-gray-300 max-sm:text-xs ">
                 {card?.view}
               </p>
-              <i className="fa fa-eye ml-[4px]  text-gray-700 dark:text-white  text-[16px] "></i>
+              <i className="fa fa-eye ml-[4px]  max-sm:text-[13px] text-gray-700 dark:text-white  text-[16px] "></i>
             </div>
 
             <Bookmark setbookmarked={setbookmarked} card={card}></Bookmark>
@@ -240,7 +240,7 @@ export default function BlogCard({ card, isBookmark, isLiked }) {
               onClick={sharemodal}
             >
               {" "}
-              <i className="dark:text-white  fa fa-share  text-gray-600 text-[16px] "></i>
+              <i className="dark:text-white  max-sm:text-[13px] fa fa-share  text-gray-600 text-[16px] "></i>
             </div>
             {ShowEdit && window.location.pathname != "/profile" && (
               <div className="relative">
