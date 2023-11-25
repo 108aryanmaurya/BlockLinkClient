@@ -15,7 +15,7 @@ const Hero = () => {
     const fetchRandomBlog = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5001/api/blogs/fetchrandomblog"
+          "https://bloglinkbackend-it3i.onrender.com/api/blogs/fetchrandomblog"
         );
         const data = await response?.json();
         setRandomBlog(data);

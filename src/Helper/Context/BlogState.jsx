@@ -2,7 +2,7 @@ import { useState } from "react";
 import blogContext from "./blogContext";
 
 const BlogState = (props) => {
-  const host = "http://localhost:5001";
+  const host = "https://bloglinkbackend-it3i.onrender.com";
   const bloginitial = [];
   const bloginitial1 = [];
 
