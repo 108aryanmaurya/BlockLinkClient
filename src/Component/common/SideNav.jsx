@@ -60,7 +60,7 @@ export default function SideNav(props) {
             {navLinks.map((item) => (
               <li
                 key={item.label}
-                className="w-[100%] bg-bgBlue  dark:bg-darkBgPrimary"
+                className="w-[100%] hover:bg-bgBlue  dark:hover:bg-darkBgPrimary"
               >
                 <Link
                   to={item.href}
@@ -71,7 +71,16 @@ export default function SideNav(props) {
                 </Link>
               </li>
             ))}
-            <li className="w-[100%] bg-bgBlue  dark:bg-darkBgPrimary">
+            <li className="w-[100%] hover:bg-bgBlue  dark:hover:bg-darkBgPrimary">
+              <Link
+                to="/write"
+                onClick={NavStatus}
+                className="w-full inline-block text-center font-montserrat  py-4 text-lg font-semibold dark:hover:text-secondary text-gray-400 hover:text-primaryMain text-slate-gray dark:text-darkTextMain"
+              >
+                Create Blog
+              </Link>
+            </li>
+            <li className="w-[100%] hover:bg-bgBlue  dark:hover:bg-darkBgPrimary">
               <Link
                 to="/settings"
                 onClick={NavStatus}
@@ -80,14 +89,14 @@ export default function SideNav(props) {
                 Settings
               </Link>
             </li>
-            <li className="w-[100%] bg-bgBlue  dark:bg-darkBgPrimary">
+            <li className="w-[100%] hover:bg-bgBlue  dark:hover:bg-darkBgPrimary">
               <span
                 onClick={() => {
-                  navigate(`/bookmarks`, {
-                    state: {
-                      userID: UserDetails?.userID,
-                    },
-                  });
+                  navigate(
+                    `/bookmarks/${
+                      JSON.parse(localStorage.getItem("UserData")).userDetailId
+                    }`
+                  );
                   NavStatus();
                 }}
                 className="w-full inline-block text-center font-montserrat  py-4 text-lg font-semibold dark:hover:text-secondary text-gray-400 hover:text-primaryMain text-slate-gray dark:text-darkTextMain"
@@ -96,13 +105,13 @@ export default function SideNav(props) {
               </span>
             </li>
 
-            <li className="w-[100%] bg-bgBlue  dark:bg-darkBgPrimary">
+            <li className="w-[100%] hover:bg-bgBlue  dark:hover:bg-darkBgPrimary">
               <span className="w-full inline-block text-center font-montserrat  py-2 text-lg font-semibold dark:hover:text-secondary text-gray-400 hover:text-primaryMain text-slate-gray dark:text-darkTextMain">
                 <FeedbackButton />
               </span>
             </li>
           </ul>
-          <div className="flex gap-2 text-lg  py-4 dark:bg-darkBgPrimary  text-gray-400 justify-center font-medium  bg-bgBlue ">
+          <div className="flex gap-2 text-lg  py-4 dark:hover:bg-darkBgPrimary  text-gray-400 justify-center font-medium  hover:bg-bgBlue ">
             {!AuthStatus ? (
               <Signin />
             ) : (
