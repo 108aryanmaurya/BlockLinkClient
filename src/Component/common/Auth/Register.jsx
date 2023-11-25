@@ -16,7 +16,7 @@ export default function Register({
     password: "",
     name: "",
   });
-  const host = "http://localhost:5001";
+  const host = "https://bloglinkbackend-it3i.onrender.com";
 
   const RegisterOnchange = (e) => {
     setRegistercreds({

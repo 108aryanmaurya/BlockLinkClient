@@ -161,7 +161,7 @@ export default function BlogCard({ card, isBookmark, isLiked }) {
                 navigate(`/blogs/${card._id}`);
               }}
             >
-              <h3 className="theme-font-minor text-xl my-1 font-bold font-serif hover:text-primaryMain  dark:hover:text-secondary dark:text-darkTextMain  cursor-pointer max-sm:text-md capitalize max-sm:font-medium line-clamp-2  max-sm:text-[17px] ">
+              <h3 className="theme-font-minor text-xl my-1 font-bold font-serif hover:text-primaryMain  dark:hover:text-secondary dark:text-darkTextMain  cursor-pointer max-sm:text-md capitalize line-clamp-2  max-sm:text-[17px] ">
                 {card?.Title}
               </h3>
             </div>
@@ -198,7 +198,7 @@ export default function BlogCard({ card, isBookmark, isLiked }) {
               >
                 <img
                   src={card?.Blog_url}
-                  className="content-evenly transition-all ease-in-out duration-200 group-hover:scale-[1.2] "
+                  className="content-evenly max-h-[90px] object-cover transition-all ease-in-out duration-200 group-hover:scale-[1.2] "
                   width={280}
                   alt="codeimg"
                 />

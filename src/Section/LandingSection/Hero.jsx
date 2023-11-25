@@ -15,7 +15,7 @@ const Hero = () => {
     const fetchRandomBlog = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5001/api/blogs/fetchrandomblog"
+          "https://bloglinkbackend-it3i.onrender.com/api/blogs/fetchrandomblog"
         );
         const data = await response?.json();
         setRandomBlog(data);
@@ -37,15 +37,13 @@ const Hero = () => {
         ) : (
           randomBlog && (
             <>
-              <div className="max-h-[400px] min-h-[400px] w-full max-sm:max-h-[300px] max-sm:min-h-[300px] overflow-hidden dark:bg-gray-700">
-                <img
-                  src={randomBlog?.Blog_url}
-                  alt="hero-image"
-                  className="w-full "
-                />
-              </div>
+              <img
+                src={randomBlog?.Blog_url}
+                alt="hero-image"
+                className="max-h-[400px] min-h-[400px] w-full max-sm:max-h-[300px] max-sm:min-h-[300px] overflow-hidden dark:bg-gray-700 "
+              />
 
-              <div className="relative rounded-xl w-[65%] bg-white max-lg:bottom-[50px] bottom-[100px] max-lg:w-[90%] shadow-[0_18px_10px_-15px_rgba(0,0,0,0.1)] group dark:bg-darkBgPrimary">
+              <div className="relative rounded-xl w-[65%] bg-white max-lg:bottom-[50px] bottom-[100px] max-lg:w-[90%] shadow-[0_18px_10px_-15px_rgba(0,0,0,0.1)] group dark:bg-darkBgPrimary max-sm:rounded-sm">
                 <div className="px-20 max-sm:px-10 py-10 max-sm:py-5 flex flex-col items-center max-lg:px-10 max-lg:py-5">
                   <span className="text-primaryMain dark:text-secondary text-[18px] font-medium max-lg:text-[12px] tracking-[5px] uppercase cursor-pointer">
                     {randomBlog?.Category}
@@ -59,7 +57,7 @@ const Hero = () => {
                     {randomBlog?.Title}
                   </h1>
 
-                  <div className="flex flex-row items-center justify-center">
+                  <div className="flex flex-row items-center justify-center max-md:flex-col">
                     <p
                       className="text-lg max-lg:text-[15px] ml-2 font-semibold font-palanquin text-gray-700 dark:text-darkTextMain cursor-pointer"
                       onClick={() => {
@@ -70,7 +68,7 @@ const Hero = () => {
                     >
                       By {randomBlog?.author?.username}
                     </p>
-                    <span className="text-lg max-lg:text-[15px] max-lg:text-sm ml-2 font-semibold font-palanquin text-gray-400">
+                    <span className="text-lg max-lg:text-[15px] max-lg:text-sm ml-2 font-semibold font-palanquin text-gray-400 max-md:hidden">
                       -
                     </span>
                     <p className="text-lg max-lg:text-sm ml-1 font-semibold font-palanquin text-gray-400 dark:text-darkTextPrimary">

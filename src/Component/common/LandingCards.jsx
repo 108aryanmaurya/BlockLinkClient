@@ -109,11 +109,11 @@ export default function LandingCards({ card }) {
           )}`}
         ></ShareModal>
       )}
-      <article className="break-inside-avoid mx-auto w-[100%] max-md:w-[95%] p-6 max-sm:p-3 bg-bgBlue rounded-xl  dark:bg-darkBgPrimary flex flex-col bg-clip-border  my-5 group">
+      <article className="break-inside-avoid mx-auto w-[100%] max-md:w-[95%] p-6 max-sm:p-3 bg-bgBlue rounded-xl  dark:bg-darkBgPrimary flex flex-col bg-clip-border  my-5 group max-md:rounded-md">
         <div className="flex pb-4 max-sm:pb-2 items-center justify-between">
           <div className="flex">
             <img
-              className="rounded-full  dark:bg-darkBgMain bg-white max-w-none w-10  h-10 object-cover object-top"
+              className="rounded-full  dark:bg-darkBgMain bg-white max-w-none max-sm:w-8 max-sm:h-8 w-10  h-10 object-cover object-top"
               src={
                 card.author.profileImg == ""
                   ? profileDefault
@@ -122,7 +122,7 @@ export default function LandingCards({ card }) {
             />
             <div className="flex flex-col justify-center ml-2">
               <div
-                className="flex items-center text-[17px] tracking-[0.8px] dark:text-darkTextMain cursor-pointer font-semibold"
+                className="flex items-center text-[17px] tracking-[0.8px] dark:text-darkTextMain cursor-pointer font-semibold max-lg:text-[15px] max-sm:text-[11px] max-md:text-[14px] truncate line-clamp-1"
                 onClick={() => {
                   navigate(
                     `/profile/${card?.author.username?.replace(/\s+/g, "-")}`,
@@ -132,7 +132,7 @@ export default function LandingCards({ card }) {
               >
                 {card?.author.username}
               </div>
-              <div className="text-slate-600 font-semibold text-xs  dark:text-darkTextPrimary">
+              <div className="text-slate-600 font-semibold text-xs max-lg:text-[15px] max-sm:text-[10px] max-md:text-[12px]  dark:text-darkTextPrimary">
                 {date}
               </div>
             </div>
@@ -150,7 +150,7 @@ export default function LandingCards({ card }) {
         </div>
         <div className="flex gap-10">
           <h2
-            className="text-gray-600 text-xl max-lg:text-md max-sm:text-sm leading-7 font-bold font-serif  dark:text-darkTextMain hover:text-primaryMain tracking-wider dark:hover:text-secondary line-clamp-2 cursor-pointer capitalize"
+            className="text-gray-800 text-xl max-lg:text-md max-sm:text-sm leading-7 font-bold font-serif  dark:text-darkTextMain hover:text-primaryMain tracking-wider dark:hover:text-secondary line-clamp-2 cursor-pointer capitalize"
             onClick={() => {
               navigate(`/blogs/${card?._id}`);
             }}
@@ -163,35 +163,38 @@ export default function LandingCards({ card }) {
           <img className="w-full rounded-lg" src={card.Blog_url} />
         </div>
         <div className="flex justify-between">
-          <div className="flex gap-5">
-            <div className=" max-sm:pt-0">
-              <i className="fa fa-heart text-red-500 mr-1 "></i>
-
-              <span className="text-lg font-bold text-gray-600 dark:text-darkTextMain">
+          <div className="flex gap-10 max-lg:gap-7 max-md:gap-5 max-sm:gap-0">
+            <div className="rounded-full max-sm:px-[7px]  max-sm:py-[6px]  py-2 px-3    group/btn flex justify-center items-center transition ease-in-out">
+              {" "}
+              <p className="text-xs   text-gray-700 dark:text-gray-300 max-sm:text-xs ">
                 {like}
-              </span>
+              </p>
+              <i
+                className={` ml-[4px]  text-red-500 dark:text-red-500 fa fa-heart text-[16px] `}
+              ></i>
             </div>
-            <div className=" max-sm:pt-0">
-              <i className="fa fa-bookmark text-primaryMain mr-1 "></i>
-
-              <span className="text-lg text-gray-600 font-bold  dark:text-darkTextMain">
+            <div className="rounded-full py-2  px-3  max-sm:px-[7px] max-sm:py-[6px]  flex justify-center items-center">
+              <p className="text-xs  text-gray-700 dark:text-gray-300 max-sm:text-xs ">
                 {book}
-              </span>
+              </p>
+              <i
+                className={`ml-[4px] text-primaryMain dark:text-primaryMain fa fa-bookmark
+                hover:text-primaryMain  text-[16px] `}
+              ></i>
             </div>
-            <div className=" max-sm:pt-0">
-              <i className="fa fa-eye  text-gray-600  mr-1 dark:text-gray-200"></i>
-
-              <span className="text-lg font-bold   dark:text-darkTextMain">
+            <div className="w-[100%] flex py-2  px-3  items-center justify-center">
+              <p className="text-xs  text-gray-700 dark:text-gray-300 max-sm:text-xs ">
                 {card?.view}
-              </span>
+              </p>
+              <i className="fa fa-eye ml-[4px]  text-gray-700 dark:text-white  text-[16px] "></i>
             </div>
-          </div>
-          <div className="rounded-full max-sm:px-[7px] flex-col-reverse max-sm:py-[6px]   flex justify-center items-center transition ease-in-out">
-            {" "}
-            <i
-              className="dark:text-white  fa fa-share  text-gray-600 text-[19px]  "
-              onClick={sharemodal}
-            ></i>
+            <div className="rounded-full max-sm:px-[7px] flex-col-reverse max-sm:py-[6px]   flex justify-center items-center transition ease-in-out">
+              {" "}
+              <i
+                className="dark:text-white  fa fa-share  text-gray-600 text-[16px] "
+                onClick={sharemodal}
+              ></i>
+            </div>
           </div>
         </div>
       </article>
