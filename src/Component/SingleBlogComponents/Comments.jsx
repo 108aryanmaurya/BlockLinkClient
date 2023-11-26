@@ -69,7 +69,9 @@ export default function Comments({ blog }) {
                 id="comment"
                 rows="6"
                 name="comment"
-                value={comment?.comment}
+                value={
+                  comment?.comment == "[object Object]" ? "" : comment?.comment
+                }
                 onChange={(e) => {
                   getInput(e);
                 }}

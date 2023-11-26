@@ -31,7 +31,7 @@ const BlogState = (props) => {
   const filterblogs = async (userID) => {
     console.log(userID);
     const response = await fetch(
-      `${host}/api/blogs/filterblog?userID=${userID}`,
+      `${host}/api/blogs/filterblog/userID=${userID}`,
       {
         method: "GET",
         headers: {
@@ -41,7 +41,8 @@ const BlogState = (props) => {
     );
 
     const json = await response.json();
-
+    console.log("json asadbewb wef ewfef ewferfj");
+    console.log(json);
     setfilterData(json);
   };
   const getsingleblogContent = async (id) => {

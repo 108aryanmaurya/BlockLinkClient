@@ -1,6 +1,7 @@
 import React from "react";
 import { BlogCard } from "../../Component/common";
 export default function UserBlogs({ filterData }) {
+  console.log(filterData);
   return (
     <>
       <section className="relative py-4">
