@@ -7,7 +7,7 @@ import { Search, SideNav, ScrollProgress, Login, Profile } from "./";
 import TopicBar from "../SingleBlogComponents/TopicBar";
 import AuthContext from "../../Helper/Context/AuthContext";
 import BlogLinkLogo from "./BlogLinkLogo";
-TopicBar;
+
 const MainNav = () => {
   const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState(false);
