@@ -6,11 +6,13 @@ import LeftSection from "../Section/SingleBlogSection/LeftSection";
 import MiddleSection from "../Section/SingleBlogSection/MiddleSection";
 import RightSection from "../Section/SingleBlogSection/RightSection";
 import LeftSectionSkeleton from "../Component/SkeletonLoaders/SingleBlogPageSkeleton/LeftSectionSkeleton";
+
 import TopSectionSkeleton from "../Component/SkeletonLoaders/SingleBlogPageSkeleton/TopSectionSkeleton";
 import MiddleSectionSkeleton from "../Component/SkeletonLoaders/SingleBlogPageSkeleton/MiddleSectionSkeleton";
 import RightSectionSkeleton from "../Component/SkeletonLoaders/SingleBlogPageSkeleton/RightSectionSkeleton";
 import { Comments } from "../Component/common";
 import TopicBar from "../Component/SingleBlogComponents/TopicBar";
+import CommentSkeleton from "../Component/SkeletonLoaders/SingleBlogPageSkeleton/CommentSkeleton";
 
 const SingleBlog = ({ blog1, loading }) => {
   const [scrollDirection, setScrollDirection] = useState("up");
@@ -96,13 +98,19 @@ const SingleBlog = ({ blog1, loading }) => {
           ref={commentSectionRef}
           className="w-[70%] mt-10 max-sm:mt-0  max-md:w-full"
         >
-          <Comments blog={blog1} />
+          {loading ? (
+            <CommentSkeleton></CommentSkeleton>
+          ) : (
+            <Comments blog={blog1} />
+          )}
         </div>
       </section>
+
       <TopicBar
         scrollToCommentSection={scrollToCommentSection}
         navbarRef={navbarRef}
         card={blog1}
+        loading={loading}
       />
     </>
   );

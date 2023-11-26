@@ -2,17 +2,40 @@ import React from "react";
 
 const LeftSectionSkeleton = () => {
   return (
-    <section className="flex   max-2xl:w-full max-xl:mt-3  flex-col justify-center items-center  ">
-      <div className=" flex justify-center items-center w-28 md:w-[140px] h-28 rounded-full  bg-gray-200  dark:bg-gray-700"></div>
-      <div className="flex gap-5 flex-col mt-4 md:mt-3 justify-center items-center">
-        <p className="bg-gray-200 h-4 w-[126px]  dark:bg-gray-700 dark:hover:text-secondary md:text-[24px]   leading-9 md:leading-5 text-center font-montserrat  font-semibold text-3xl"></p>
-        <p className="font-serif md:text-center h-4 w-[126px] bg-gray-200  dark:bg-gray-700 opacity-50 md:text-[23px] text-[23px]">
-          {/* <i>Contributing Writer</i> */}
-        </p>
+    <section className="flex max-sm:mt-3 mt-10 max-2xl:w-full   flex-col justify-center items-center max-2xl:flex-row max-lg:flex-col max-md:flex-row max-2xl:justify-evenly">
+    <div className="flex  max-sm:mb-7 flex-col justify-center items-center border-b-[1px] dark:border-darkBorderAll max-md:border-0">
+      <p className="text-3xl max-sm:text-lg max-md:text-[26px] font-semibold py-3 max-sm:py-[10px]">
+        Author
+      </p>
 
-        <p className="bg-gray-200  dark:bg-gray-700 border-y-[2px] py-6 md:py-3 opacity-50 tracking-[-1px]"></p>
+      <div className=" flex max-sm:w-[90px]  max-sm:h-[90px] bg-lightSkeleton  shadow  animate-pulse   w-28 h-28 dark:bg-darkSkeleton rounded-full  justify-centeritems-center"> 
+        
       </div>
-    </section>
+      <div className=" flex gap-5 max-sm:gap-0 max-md:gap-0 flex-col mt-2 max-sm:mt-0  justify-center items-center ">
+       
+        <p className="py-6  bg-lightSkeleton  shadow  animate-pulse  dark:bg-darkSkeleton  max-md:py-3 max-sm:text-[15px] md:py-3 opacity-70 tracking-[-1px] max-sm:h-1  max-sm:w-16 max-sm:mt-1 ">
+      
+         
+        </p>
+      </div>
+    </div>
+
+    <div className="max-xl:flex max-xl:flex-col max-sm:pb-14  pb-8 items-center justify-center flex flex-col max-xl:justify-center max-xl:items-center">
+      <p className=" text-3xl max-md:text-[26px] max-sm:text-lg font-semibold py-3">
+        Share the article
+      </p>
+      {
+        <ul className="grid grid-cols-2  max-xl:gap-5 justify-start items-center gap-2  max-sm:gap-[5px] ">
+          <li className="bg-lightSkeleton  shadow  animate-pulse  dark:bg-darkSkeleton   w-8 h-8 justify-center items-center"></li>
+          <li className="bg-lightSkeleton  shadow  animate-pulse  dark:bg-darkSkeleton   w-8 h-8    justify-center items-center"></li>
+          <li className="bg-lightSkeleton  shadow  animate-pulse  dark:bg-darkSkeleton   w-8 h-8    justify-center items-center"></li>
+          <li className="bg-lightSkeleton  shadow  animate-pulse  dark:bg-darkSkeleton  shadow  animate-pulse  w-8 h-8    justify-center items-center"></li>
+        
+          
+        </ul>
+      }
+    </div>
+  </section>
   );
 };
 

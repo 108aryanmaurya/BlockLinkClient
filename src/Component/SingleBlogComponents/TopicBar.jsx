@@ -4,7 +4,7 @@ import ShareModal from "./ShareModal";
 import Bookmark from "../common/IconComponents/Bookmark";
 import Like from "../common/IconComponents/Like";
 
-const TopicBar = ({ navbarRef, card, scrollToCommentSection }) => {
+const TopicBar = ({ navbarRef, loading, card, scrollToCommentSection }) => {
   const [shareModalVisible, setShareModalVisible] = useState(false);
 
   const sharemodal = () => {
@@ -29,20 +29,22 @@ const TopicBar = ({ navbarRef, card, scrollToCommentSection }) => {
           </div>
 
           <p className="pl-3 max-sm:text-[11px] font-bold text-black capitalize dark:text-white text-[23px]">
-            {card?.Title?.length > 50
-              ? card?.Title.substring(0, 50) + "..."
-              : card?.Title}
+            {loading ? (
+              <div className="bg-lightSkeleton  shadow  animate-pulse    dark:bg-darkSkeleton h-4 rounded-sm w-32"></div>
+            ) : (
+              card?.Title
+            )}
           </p>
         </div>
-        <div className="flex gap-5 max-sm:gap-1 mr-4">
+        <div className="flex gap-5 max-sm:gap-0 max-sm:mr-3 mr-4">
           <i
-            className="dark:text-white max-sm:text-[13px] fa fa-comment  text-gray-600 hover:text-primaryMain dark:hover:text-primaryMain px-2 text-[20px] "
+            className="dark:text-white max-sm:text-[13px] mt-[8px] fa fa-comment  text-gray-600 hover:text-primaryMain dark:hover:text-primaryMain px-2 text-[20px] "
             onClick={scrollToCommentSection}
           ></i>
           <Bookmark card={card}></Bookmark>
           <Like card={card}></Like>
           <i
-            className="dark:text-white block fa fa-share  text-gray-600 max-sm:text-[13px] hover:text-primaryMain dark:hover:text-primaryMain px-2 text-[20px]"
+            className="dark:text-white block fa fa-share  mt-[8px]  text-gray-600 max-sm:text-[13px] hover:text-primaryMain dark:hover:text-primaryMain px-2 text-[20px]"
             onClick={sharemodal}
           ></i>
         </div>

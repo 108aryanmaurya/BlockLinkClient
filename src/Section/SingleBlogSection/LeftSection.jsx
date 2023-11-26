@@ -16,7 +16,7 @@ const LeftSection = ({ blog }) => {
                 : profileDefault
             }
             alt=""
-            className=" max-sm:w-[90px] max-sm:h-[90px]   w-28 h-28  border-2 object-cover object-top rounded-full "
+            className=" dark:bg-darkSkeleton max-sm:w-[90px] max-sm:h-[90px]   w-28 h-28  border-2 object-cover object-top rounded-full "
           />
         </div>
         <div className=" flex gap-5 max-sm:gap-0 max-md:gap-0 flex-col mt-2 max-sm:mt-0  justify-center items-center ">

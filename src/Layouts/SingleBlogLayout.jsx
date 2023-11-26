@@ -35,10 +35,7 @@ const SingleBlogLayout = () => {
       const currentTime = Date.now();
       const elapsedSeconds = (currentTime - startTime) / 1000;
 
-      // If the user has stayed on the page for more than 3 minutes (180 seconds), increase the view count
       if (elapsedSeconds >= 10) {
-        // setViewCount((prevViewCount) => prevViewCount + 1);
-        // console.log();
         if (SingleBlogContent[0]?.view === "NaN") {
           updateViews({ view: "0", id });
         } else {
@@ -47,8 +44,6 @@ const SingleBlogLayout = () => {
         clearInterval(intervalId); // Stop the timer
       }
     }, 1000);
-
-    // setTimer(intervalId);
 
     // Clean up the timer when the component unmounts
   }, [SingleBlogContent]);

@@ -4,16 +4,20 @@ import ShareSkeleton from '../ShareSkeleton'
 
 const RightSectionSkeleton = () => {
   return (
-    <section className="flex max-2xl:mt-1   flex-col justify-center items-center ">
-      <div className="max-xl:flex max-xl:flex-col items-center justify-center flex flex-col max-xl:justify-center max-xl:items-center">
-        <p className="text-3xl font-semibold py-3">Share the article</p>
-        {
-          <ul className="grid grid-cols-2 max-xl:gap-5 justify-start items-center gap-2 ">
-            {shareData.map((share, index) => (
-              <ShareSkeleton share={share} check={false} key={index}></ShareSkeleton>
-            ))}
-          </ul>
-        }
+    <section className="flex flex-col justify-center items-center">
+      <div className="w-[90%] p-2 max-sm:mt-2  dark:border-gray-700">
+        <h5 className="text-xl w-full my-2  max-sm:ml-2 font-semibold leading-none text-gray-900 dark:text-white max-sm:text-[17px]">
+          Similar Blogs
+        </h5>
+        <ul className="divide-y divide-gray-200 dark:divide-darkBorderAll">
+          <li className="py-3 max-sm:py-2 sm:py-4    bg-lightSkeleton  shadow  animate-pulse   w-44 max-sm:mb-2 max-sm:rounded-sm h-8 dark:bg-darkSkeleton  hover:bg-gray-100 dark:hover:bg-darkBgPrimary px-2 cursor-pointer" 
+          ></li>
+          <li className="py-3 max-sm:py-2 sm:py-4    bg-lightSkeleton  shadow  animate-pulse   w-44 max-sm:mb-2 max-sm:rounded-sm h-8 dark:bg-darkSkeleton  hover:bg-gray-100 dark:hover:bg-darkBgPrimary px-2 cursor-pointer" 
+          ></li>
+          <li className="py-3 max-sm:py-2 sm:py-4    bg-lightSkeleton  shadow  animate-pulse   w-44 max-sm:mb-1 max-sm:rounded-sm h-8 dark:bg-darkSkeleton  hover:bg-gray-100 dark:hover:bg-darkBgPrimary px-2 cursor-pointer" 
+          ></li>
+        </ul>
+      
       </div>
     </section>
   )

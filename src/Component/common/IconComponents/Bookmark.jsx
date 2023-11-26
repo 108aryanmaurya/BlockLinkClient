@@ -18,12 +18,12 @@ const Bookmark = ({ setbookmarked, card }) => {
 
   useEffect(() => {
     async function countLike2() {
-      setbookmarkcount(await countBookmark(card._id));
+      setbookmarkcount(await countBookmark(card?._id));
 
       setBookmarked(
         await Checkbookmark({
           userId: JSON.parse(localStorage.getItem("UserData"))?.userDetailId,
-          postId: card._id,
+          postId: card?._id,
         })
       );
       // setbookmarked(Bookmarked);

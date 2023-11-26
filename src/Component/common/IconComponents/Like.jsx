@@ -18,12 +18,12 @@ const Like = ({ card }) => {
   // console.log(card);
   useEffect(() => {
     async function countLike2() {
-      setlikecount(await countLike(card._id));
+      setlikecount(await countLike(card?._id));
 
       setliked(
         await Checklike({
           userId: JSON.parse(localStorage.getItem("UserData"))?.userDetailId,
-          postId: card._id,
+          postId: card?._id,
         })
       );
     }
