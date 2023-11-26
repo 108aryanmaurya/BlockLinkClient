@@ -7,6 +7,7 @@ import CommentLikeContext from "../../Helper/Context/CommentLikeContext";
 import { profileDefault } from "../../Assets/icons";
 import CommentSettings from "./CommentSettings";
 import EditComment from "./EditComment";
+import CommentLikeIcon from "../common/IconComponents/CommentLikeIcon";
 
 const CommentBox = ({ comment, depth, maxdepth }) => {
   const constext = useContext(HelperContext);
@@ -18,39 +19,31 @@ const CommentBox = ({ comment, depth, maxdepth }) => {
   const [data, setdata] = useState({});
   const [showReply, setshowReply] = useState(false);
 
-  useEffect(() => {}, [edit]);
-  // const comData = getreply(comment?._id);
   useEffect(() => {
-    // console.log(comment);
     async function f() {
       setdata(await getreply(comment?._id));
       console.log(data);
     }
     f();
-  }, []);
+    console.log(comment.Date);
+  }, [comment]);
 
-  useEffect(() => {
-    // Uncomment the next line if you need to log replies
-    // console.log(reply);
-  }, [data]);
+  useEffect(() => {}, [data]);
 
   const handleReplySubmit = async () => {
-    // Trigger a re-fetch of replies when a reply is submitted
-    // console.log("I ran");
     setdata(await getreply(comment?._id));
   };
 
   const [replyBox, setreplyBox] = useState(false);
-  // console.log(reply);
 
   return (
     <section className="">
-      <article className="p-6 text-base mt-2 bg-white rounded-lg dark:bg-darkBgPrimary">
+      <article className="p-6 max-sm:p-3 text-base mt-2 bg-white rounded-lg dark:bg-darkBgPrimary">
         <footer className=" flex justify-between items-center mb-2">
           <div className="flex items-center">
-            <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">
+            <div className="inline-flex items-center mr-[7px] text-sm text-gray-900 dark:text-white font-semibold">
               <img
-                className="dark:bg-slate-300 mr-2 w-6 h-6 bg-gray-200 rounded-full"
+                className="dark:bg-slate-300  w-6 h-6 bg-gray-200 rounded-full"
                 src={
                   comment?.author?.profileImg
                     ? comment?.author?.profileImg
@@ -58,11 +51,19 @@ const CommentBox = ({ comment, depth, maxdepth }) => {
                 }
                 alt="commentor"
               />
-              {comment?.author?.username}
-            </p>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              <time title="February 8th, 2022">{date}</time>
-            </p>
+            </div>
+            <div className=" max-sm:flex-col">
+              <p className="max-sm:text-[13px]">{comment?.author?.username}</p>
+
+              <p className="text-[13px] max-sm:text-[11px] font-semibold dark:text-gray-300 text-gray-500">
+                {comment.isEdited && "(Edited) "}
+                {new Date(comment?.Date).toLocaleString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </p>
+            </div>
           </div>
 
           <CommentSettings
@@ -71,7 +72,7 @@ const CommentBox = ({ comment, depth, maxdepth }) => {
             comment={comment}
           ></CommentSettings>
         </footer>
-        <div className="border-l-2 pl-2">
+        <div className="ml-3 dark:border-gray-400 border-l-2 pl-3  ">
           {edit ? (
             <EditComment
               // reply={reply}
@@ -86,16 +87,14 @@ const CommentBox = ({ comment, depth, maxdepth }) => {
               // onReplySubmit={handleReplySubmit}
             ></EditComment>
           ) : (
-            <p className=" text-gray-500 dark:text-gray-400">{comment.text}</p>
+            <p className=" max-sm:text-[14px] text-gray-500 dark:text-gray-200">
+              {comment.text}
+            </p>
           )}
-          <div className="flex mt-4 gap-3 flex-col items-start">
+          <div className="flex mt-4 max-sm:mt-1 gap-3 max-sm:gap-0 flex-col items-start">
             <div className="flex items-center  space-x-4">
-              <button>
-                <i className="fa fa-thumbs-up "></i>
-              </button>
-              <button>
-                <i className="fa fa-thumbs-down "></i>
-              </button>
+              <CommentLikeIcon comment={comment}></CommentLikeIcon>
+
               <button
                 type="button"
                 className="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium"
@@ -104,7 +103,7 @@ const CommentBox = ({ comment, depth, maxdepth }) => {
                 }}
               >
                 <svg
-                  className="mr-1.5 w-3.5 h-3.5"
+                  className="mr-1.5 max-sm:w-[15px] w-3  h-3.5  "
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -118,7 +117,7 @@ const CommentBox = ({ comment, depth, maxdepth }) => {
                     d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"
                   />
                 </svg>
-                Reply
+                <p className="text-[12px]"> Reply</p>
               </button>
             </div>
             <div
@@ -127,8 +126,10 @@ const CommentBox = ({ comment, depth, maxdepth }) => {
                 setshowReply(!showReply);
               }}
             >
-              <i className="fa fa-angle-down mr-1 "></i>
-              {data.children?.length > 0 && data.children?.length} Reply
+              {data?.children?.length > 0 &&
+                `(${data?.children?.length}) 
+             
+              ${data?.children?.length > 1 ? "Replies" : "Reply"}`}
             </div>
           </div>
           {JSON.parse(localStorage.getItem("UserData")) && (

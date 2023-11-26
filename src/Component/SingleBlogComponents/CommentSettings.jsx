@@ -13,7 +13,7 @@ const CommentSettings = ({ comment, setedit, edit }) => {
   const profileMenu = () => {
     setIsDropdownVisible(!isDropdownVisible);
   };
-
+  useEffect(() => {}, [edit]);
   return (
     <div>
       {" "}
@@ -23,7 +23,7 @@ const CommentSettings = ({ comment, setedit, edit }) => {
           onClick={profileMenu}
           id="dropdownComment1Button"
           data-dropdown-toggle="dropdownComment1"
-          className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-400 bg-white rounded-lg hover:bg-gray-100   dark:bg-darkBgPrimary dark:hover:bg-gray-700 "
+          className="inline-flex items-center max-sm:p-1 p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-400 bg-white rounded-lg hover:bg-gray-100   dark:bg-darkBgPrimary dark:hover:bg-gray-700 "
           type="button"
         >
           <svg
@@ -49,7 +49,7 @@ const CommentSettings = ({ comment, setedit, edit }) => {
             ></div>
             <div
               id="dropdownAvatarName"
-              className="z-50 block absolute top-[-10px] right-[-20px]  max-sm:left-[-20px] max-sm:top-[65px] max-sm:w-14 bg-white divide-y divide-gray-100 max-sm:rounded-md rounded-lg shadow-sm w-16 dark:bg-darkBgPrimary dark:divide-gray-600 border dark:border-gray-600"
+              className="z-0 block absolute top-[-10px] right-[-20px]  max-sm:right-[0px] max-sm:w-14 bg-white divide-y divide-gray-100 max-sm:rounded-md rounded-lg shadow-sm w-16 dark:bg-darkBgPrimary dark:divide-gray-600 border dark:border-gray-600"
             >
               <ul
                 className=" max-sm:py-0 text-sm text-gray-700 dark:text-gray-200"
@@ -61,7 +61,9 @@ const CommentSettings = ({ comment, setedit, edit }) => {
                     className="block cursor-pointer max-sm:px-1 max-sm:py-1 px-3 pt-2 pb-1 max-sm:rounded-md hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     onClick={() => {
                       console.log(edit);
-                      setedit(true);
+                      if (edit == false) {
+                        setedit(true);
+                      }
                       //   navigate(`/updateblog/${card._id}`);
                     }}
                   >

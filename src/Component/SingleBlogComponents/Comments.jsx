@@ -14,7 +14,7 @@ export default function Comments({ blog }) {
   const ModalStatus = () => {
     setAuthModal((showAuthModal) => !showAuthModal);
   };
-  // https://bloglinkbackend-it3i.onrender.com
+  // http://localhost:5001
 
   const [comment, setcomment] = useState("");
   useEffect(() => {
@@ -69,7 +69,9 @@ export default function Comments({ blog }) {
                 id="comment"
                 rows="6"
                 name="comment"
-                value={comment?.comment}
+                value={
+                  comment?.comment == "[object Object]" ? "" : comment?.comment
+                }
                 onChange={(e) => {
                   getInput(e);
                 }}

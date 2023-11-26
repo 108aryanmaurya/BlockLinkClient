@@ -12,7 +12,7 @@ const CommentLikeState = (props) => {
   const context = useContext(blogContext);
   // const {}
   const [reply, setreply] = useState({});
-  const host = "https://bloglinkbackend-it3i.onrender.com";
+  const host = "http://localhost:5001";
   const [SingleBlogComment, setSingleBlogComment] = useState([]);
   const addreply = async (data) => {
     const { id } = data;
@@ -59,22 +59,24 @@ const CommentLikeState = (props) => {
     // todo api call
     //API call
     const obj = JSON.parse(localStorage.getItem("UserData"));
-    const { commentID, comment, userID } = data;
+    const { id, userID, reply } = data;
+    console.log(data);
     const response = await fetch(`${host}/api/comments/editcomment`, {
-      method: "POST",
+      method: "PUT",
       headers: {
         "auth-token": obj.authtoken,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        commentID,
-        comment,
+        id,
+        reply,
         userID,
       }),
     });
     const comments = await response.json();
-
-    // setSingleBlogComment(SingleBlogComment.concat(comments));
+    console.log(comments);
+    // getreply(id);
+    //  seteditcomment()
   };
 
   const getsingleblogComment = async (id) => {
@@ -183,6 +185,35 @@ const CommentLikeState = (props) => {
 
     const resp2 = await resp.json();
   };
+  const addcommentlike = async (data) => {
+    // const obj = JSON.parse(localStorage.getItem("UserData"));
+    console.log(data);
+    const resp = await fetch(`${host}/api/comments/addcommentlike/`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const resp2 = await resp.json();
+    console.log(resp2);
+  };
+
+  const deletecommentlike = async (data) => {
+    const obj = JSON.parse(localStorage.getItem("UserData"));
+
+    const resp = await fetch(`${host}/api/comments/deletecommentlike/`, {
+      method: "PUT",
+      headers: {
+        "auth-token": obj.authtoken,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const resp2 = await resp.json();
+  };
   const Checklike = async (data) => {
     const obj = JSON.parse(localStorage.getItem("UserData"));
 
@@ -193,6 +224,21 @@ const CommentLikeState = (props) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ userId: data.userId, postId: data.postId }),
+    });
+
+    const resp2 = await resp.json();
+    return resp2;
+  };
+  const Checkcommentlike = async (data) => {
+    console.log(data);
+    const obj = JSON.parse(localStorage.getItem("UserData"));
+    const resp = await fetch(`${host}/api/comments/checkcommentlike/`, {
+      method: "PUT",
+      headers: {
+        "auth-token": obj.authtoken,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userId: data.userId, commentId: data.commentId }),
     });
 
     const resp2 = await resp.json();
@@ -253,6 +299,22 @@ const CommentLikeState = (props) => {
     const resp2 = await resp.json();
     return resp2;
   };
+  const countcommentLike = async (data) => {
+    console.log(data);
+    // console.log(data.commentId);
+
+    const resp = await fetch(`${host}/api/comments/countcommentlike`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ data }),
+    });
+
+    const resp2 = await resp.json();
+    console.log(resp2);
+    return resp2;
+  };
   const countBookmark = async (data) => {
     const resp = await fetch(`${host}/api/comments/countbookmark/`, {
       method: "PUT",
@@ -290,6 +352,11 @@ const CommentLikeState = (props) => {
         countLike,
         countBookmark,
         loading,
+        countcommentLike,
+        deletecommentlike,
+        addcommentlike,
+        Checkcommentlike,
+        Editcomment,
       }}
     >
       {props.children}

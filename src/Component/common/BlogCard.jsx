@@ -127,7 +127,10 @@ export default function BlogCard({ card, isBookmark, isLiked }) {
                         className="text-md cursor-pointer font-semibold font-palanquin text-gray-700  dark:text-darkTextMain max-sm:text-[13.6px]"
                         onClick={() => {
                           navigate(
-                            `/profile/${card?.UserName?.replace(/\s+/g, "-")}`,
+                            `/profile/${card?.author?.username?.replace(
+                              /\s+/g,
+                              "-"
+                            )}`,
                             {}
                           );
                         }}

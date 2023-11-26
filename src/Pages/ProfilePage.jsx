@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import ProfileMain from "../Section/ProfileSection/ProfileMain";
 import UserBlogs from "../Section/ProfileSection/UserBlogs";
 import AuthContext from "../Helper/Context/AuthContext";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import blogContext from "../Helper/Context/blogContext";
 
 export default function ProfilePage() {
@@ -13,7 +13,8 @@ export default function ProfilePage() {
   const { UserProfile, getUser, UserDetails, AuthStatus } = context;
   const { filterblogs, filterData } = context1;
   const [UserMatch, setUserMatch] = useState(false);
-
+  console.log(UserDetails);
+  console.log(UserProfile);
   useEffect(() => {
     if (AuthStatus) {
       if (UserDetails?._id === UserProfile?._id) {
@@ -31,11 +32,12 @@ export default function ProfilePage() {
     const urlParts = currentUrl.split("/");
     const extractedUsername = urlParts[urlParts.length - 1];
     setUsername(extractedUsername);
+    console.log(username);
   }, [location]);
 
   useEffect(() => {
     if (UserDetails) {
-      filterblogs(UserDetails?._id);
+      filterblogs(UserProfile?.userDetailId);
     }
   }, [username, UserDetails]);
 
