@@ -48,7 +48,8 @@ export default function Reviews() {
       index === rating - 1
         ? "fill-red-500"
         : "fill-gray-300 dark:fill-gray-500";
-    const sizeClass = index === rating - 1 ? "w-12" : " w-10"; // Increase size for the selected emoji
+    const sizeClass =
+      index === rating - 1 ? "w-12 max-sm:w-10 " : " w-10 max-sm:w-8"; // Increase size for the selected emoji
     return `${fillClass} ${sizeClass}`;
   };
   return (

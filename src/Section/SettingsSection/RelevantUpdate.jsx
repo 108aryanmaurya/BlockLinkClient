@@ -86,7 +86,7 @@ const RelevantUpdate = (props) => {
     <>
       <div className="w-full h-auto py-5 px-10 max-lg:px-2 flex rounded-lg bg-gray-100 dark:bg-darkBgPrimary shadow-xl flex-col">
         <form
-          className="form flex flex-col w-full  px-2 "
+          className="form flex flex-col w-full  px-2 max-md:px-0"
           onSubmit={(e) => {
             handleSubmit(e);
           }}
@@ -94,7 +94,7 @@ const RelevantUpdate = (props) => {
           <h3 className="mb-5 text-2xl font-medium text-gray-900 dark:text-white">
             Choose your preferences:
           </h3>
-          <ul className="flex flex-wrap gap-3 overflow-y-scroll">
+          <ul className="flex flex-wrap gap-3 max-md:gap-0 overflow-y-scroll">
             {computerScienceOptions.map((option, index) => (
               <li key={index}>
                 <input
@@ -107,13 +107,13 @@ const RelevantUpdate = (props) => {
                 />
                 <label
                   htmlFor={`cs-option-${index}`}
-                  className={`inline-flex items-center justify-between w-full p-2 px-6 text-gray-500 bg-white border-2  rounded-full cursor-pointer hover:border-blue-300 ${
+                  className={`inline-flex items-center justify-between w-full p-2 px-6 max-md:p-1 max-md:px-3  text-gray-500 bg-white border-2  rounded-full cursor-pointer hover:border-blue-300 ${
                     selectedOptions.includes(option)
                       ? "peer-checked:bg-primaryMain peer-checked:text-white peer-checked:dark:bg-secondary "
                       : ""
                   } dark:bg-darkBgMain dark:text-white dark:border-darkBgPrimary hover:dark:border-blue-300 `}
                 >
-                  <div className="w-full text-lg font-semibold text-center">
+                  <div className="w-full text-lg max-md:text-xs font-semibold max-md:font-medium text-center">
                     {option}
                   </div>
                 </label>

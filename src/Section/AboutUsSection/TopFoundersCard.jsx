@@ -6,9 +6,9 @@ export default function TopFoundersCard() {
       <h1 className="w-full text-center text-4xl font-bold dark:text-white text-black my-5">
         Meet the Creators
       </h1>
-      <div className="flex justify-evenly items-center mb-10">
-        <div class="relative flex flex-col text-gray-700 bg-bgBlue dark:bg-darkBgPrimary shadow-md w-96 rounded-xl bg-clip-border">
-          <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 shadow-lg h-80 rounded-xl bg-clip-border">
+      <div className="flex justify-evenly items-center max-lg:flex-col m-4 gap-5 mb-10 ">
+        <div class="relative flex flex-col text-gray-700 bg-bgBlue dark:bg-darkBgPrimary  shadow-md rounded-xl ">
+          <div class="relative mx-4 mt-4 overflow-hidden text-gray-700  h-80 max-lg:h-50  ">
             <img
               src="https://docs.material-tailwind.com/img/team-3.jpg"
               className="object-cover"
@@ -44,8 +44,8 @@ export default function TopFoundersCard() {
             </Link>
           </div>
         </div>
-        <div class="relative flex flex-col text-gray-700 bg-bgBlue dark:bg-darkBgPrimary shadow-md w-96 rounded-xl bg-clip-border">
-          <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 shadow-lg h-80 rounded-xl bg-clip-border">
+        <div class="relative flex flex-col text-gray-700 bg-bgBlue dark:bg-darkBgPrimary shadow-md  rounded-xl ">
+          <div class="relative mx-4 mt-4 overflow-hidden text-gray-700  ">
             <img
               src="https://docs.material-tailwind.com/img/team-3.jpg"
               className="object-cover"

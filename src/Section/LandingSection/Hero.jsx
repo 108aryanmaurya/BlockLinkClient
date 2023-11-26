@@ -40,7 +40,7 @@ const Hero = () => {
               <img
                 src={randomBlog?.Blog_url}
                 alt="hero-image"
-                className="max-h-[400px] min-h-[400px] w-full max-sm:max-h-[300px] max-sm:min-h-[300px] overflow-hidden dark:bg-gray-700 "
+                className="max-h-[400px] min-h-[400px] w-full max-sm:max-h-[250px] max-sm:min-h-[250px] overflow-hidden object-cover object-top dark:bg-gray-700 "
               />
 
               <div className="relative rounded-xl w-[65%] bg-white max-lg:bottom-[50px] bottom-[100px] max-lg:w-[90%] shadow-[0_18px_10px_-15px_rgba(0,0,0,0.1)] group dark:bg-darkBgPrimary max-sm:rounded-sm">

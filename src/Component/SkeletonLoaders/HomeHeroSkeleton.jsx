@@ -3,7 +3,7 @@ import React from "react";
 export default function HomeHeroSkeleton() {
   return (
     <>
-      <div className="max-h-[400px] min-h-[400px] w-full overflow-hidden bg-lightSkeleton dark:bg-gray-700"></div>
+      <div className="max-h-[400px] min-h-[400px] w-full max-sm:max-h-[250px] max-sm:min-h-[250px] overflow-hidden object-cover object-top bg-lightSkeleton dark:bg-gray-700"></div>
 
       <div className="relative rounded-xl w-[60%] bg-white max-lg:bottom-[30px] bottom-[100px] max-lg:w-[90%] shadow-[0_18px_10px_-15px_rgba(0,0,0,0.1)] group dark:bg-darkBgPrimary">
         <div className="px-20  py-10 flex flex-col items-center max-lg:px-10 max-lg:py-5">
