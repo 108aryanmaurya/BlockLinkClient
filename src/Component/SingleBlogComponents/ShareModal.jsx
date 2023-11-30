@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -9,10 +9,21 @@ import {
 
 export default function ShareModal({ sharemodal, currentUrl }) {
   const modalRef = useRef(null);
+  const [copyButtonText, setCopyButtonText] = useState("Copy");
 
   const handleOutsideClick = (event) => {
     if (modalRef.current === event.target) {
       sharemodal();
+    }
+  };
+
+  const handleCopyClick = () => {
+    const copyInput = document.getElementById("copyInput");
+
+    if (copyInput) {
+      navigator.clipboard.writeText(copyInput.value).then(() => {
+        setCopyButtonText("Copied!");
+      });
     }
   };
 
@@ -77,14 +88,18 @@ export default function ShareModal({ sharemodal, currentUrl }) {
               <div className="border-2 border-gray-200 dark:border-gray-300 flex justify-between items-center mt-4 py-2">
                 <i className="fa fa-link text-gray-800 dark:text-white px-3"></i>
                 <input
+                  id="copyInput"
                   className="w-full outline-none bg-transparent text-gray-800 dark:text-white"
                   type="text"
                   placeholder="link"
                   defaultValue={currentUrl}
                 />
 
-                <button className="bg-indigo-500 text-white rounded text-sm py-2 px-5 mr-2 hover:bg-indigo-600">
-                  Copy
+                <button
+                  onClick={handleCopyClick}
+                  className="bg-indigo-500 text-white rounded text-sm py-2 px-5 mr-2 hover:bg-indigo-600"
+                >
+                  {copyButtonText}
                 </button>
               </div>
             </div>

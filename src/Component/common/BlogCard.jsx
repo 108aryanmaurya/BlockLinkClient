@@ -97,7 +97,7 @@ export default function BlogCard({ card, isBookmark, isLiked }) {
       {shareModalVisible && (
         <ShareModal
           sharemodal={sharemodal}
-          currentUrl={`${window.location.origin}/blogs/${card?.Title?.replace(
+          currentUrl={`${window.location.origin}/blogs/${card?._id?.replace(
             /\s+/g,
             "-"
           )}`}

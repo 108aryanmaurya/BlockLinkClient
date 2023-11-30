@@ -236,7 +236,6 @@ const AuthState = (props) => {
     localStorage.setItem("UserData", JSON.stringify(json1));
 
     if (ProfileUpdated) {
-      toast.success("Profile Saved");
       const updatedUserDetails = {
         ...UserDetails,
         userID: ProfileUpdated.userID,

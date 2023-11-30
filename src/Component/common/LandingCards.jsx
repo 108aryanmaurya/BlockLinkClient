@@ -103,7 +103,7 @@ export default function LandingCards({ card }) {
       {shareModalVisible && (
         <ShareModal
           sharemodal={sharemodal}
-          currentUrl={`${window.location.origin}/blogs/${card?.Title?.replace(
+          currentUrl={`${window.location.origin}/blogs/${card?._id?.replace(
             /\s+/g,
             "-"
           )}`}

@@ -270,8 +270,8 @@ export default function ProfileMain({ UserProfile, UserMatch }) {
                       <i className="fa fa-briefcase  text-bgBlue text-base"></i>
                     </div>
                   </div>
-                  <div className="text-lightTextMain dark:text-darkTextMain font-semibold  w-[90%]  ">
-                    <p>{UserProfile?.work}</p>
+                  <div className="text-lightTextMain dark:text-darkTextMain font-semibold  w-[90%] ">
+                    <p>{UserProfile?.work || "-"}</p>
                   </div>
                 </div>
                 <div className="flex items-center w-full">
@@ -281,7 +281,7 @@ export default function ProfileMain({ UserProfile, UserMatch }) {
                     </div>
                   </div>
                   <div className="text-lightTextMain dark:text-darkTextMain font-semibold w-[90%]">
-                    <p>{UserProfile?.education}</p>
+                    <p>{UserProfile?.education || "-"}</p>
                   </div>
                 </div>
                 <div className="flex items-center w-full">
@@ -291,9 +291,10 @@ export default function ProfileMain({ UserProfile, UserMatch }) {
                     </div>
                   </div>
                   <div className="text-lightTextMain dark:text-darkTextMain font-semibold w-[90%]">
-                    <p>{UserProfile?.location}</p>
+                    <p>{UserProfile?.location || "-"}</p>
                   </div>
                 </div>
+
                 <div className="flex items-center w-full">
                   <div className="w-[20%] max-lg:w-[10%] max-sm:w-[20%]">
                     <div className="w-7 h-7 bg-primaryMain dark:bg-secondary rounded-full m-2 flex justify-center items-center ">
@@ -301,7 +302,14 @@ export default function ProfileMain({ UserProfile, UserMatch }) {
                     </div>
                   </div>
                   <div className="text-lightTextMain dark:text-darkTextMain font-semibold w-[90%]">
-                    <p>{UserProfile?.Date}</p>
+                    <p>
+                      Joined -
+                      {new Date(UserProfile?.Date).toLocaleString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </p>
                   </div>
                 </div>
               </div>

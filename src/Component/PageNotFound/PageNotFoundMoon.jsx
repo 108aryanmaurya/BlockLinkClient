@@ -18,9 +18,11 @@ export default function PageNotFoundMoon() {
           </div>
           <div className="flag">404</div>
         </div>{" "}
-        <div id="stars"></div>
-        <div id="stars2"></div>
-        <div id="stars3"></div>
+        <div className="-z-50">
+          <div id="stars"></div>
+          <div id="stars2"></div>
+          <div id="stars3"></div>
+        </div>
         <div className="message">
           <p>
             Life was wiped form this planet a long time ago,{" "}

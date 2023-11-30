@@ -1,7 +1,9 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import AuthContext from "../../../Helper/Context/AuthContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LoadingBar from "react-top-loading-bar";
+
 export default function Register({
   setSign,
   ModalStatus,
@@ -14,8 +16,12 @@ export default function Register({
   const [Registercreds, setRegistercreds] = useState({
     email: "",
     password: "",
+    confirmPassword: "",
     name: "",
   });
+
+  const [loadingBarProgress, setLoadingBarProgress] = useState(0);
+
   const host = "https://bloglinkbackend-it3i.onrender.com";
 
   const RegisterOnchange = (e) => {
@@ -25,67 +31,103 @@ export default function Register({
     });
   };
 
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const Register = async (e) => {
     e.preventDefault();
-    const { name, password, email } = Registercreds;
+    const { name, password, confirmPassword, email } = Registercreds;
+
+    // Validate email
+    if (!validateEmail(email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
+    // Validate name
+    if (name.trim().length < 3) {
+      toast.error("Name must be at least 3 characters long");
+      return;
+    }
+
+    // Validate password length
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters long");
+      return;
+    }
+
+    // Validate password matching
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
+
+    setLoadingBarProgress(40);
     const parts = email.split("@");
     const username = parts[0];
-    const response = await fetch(`${host}/api/auth/createuser`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, name, email, password }),
-    });
-    const json = await response.json();
-    if (json.success) {
-      localStorage.setItem("UserData", JSON.stringify(json));
 
-      setAuthStatus(true);
-      toast.success("Registered Successfully");
-
-      adduserdetail({
-        username: json.username,
-        description: "",
-        work: "",
-        education: "",
-        location: "",
-        profileImg: "",
-        bannerImg: "",
-        socialLinks: {
-          github: "",
-          linkedin: "",
-          instagram: "",
-          twitter: "",
+    try {
+      const response = await fetch(`${host}/api/auth/createuser`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
+        body: JSON.stringify({ username, name, email, password }),
       });
-      getCurrentUser(JSON.parse(localStorage.getItem("UserData")).UserID);
-      RelevantModalStatus();
-      ModalStatus();
-    } else {
-      toast.error("Can't Register");
+
+      setLoadingBarProgress(50);
+
+      const json = await response.json();
+
+      if (json.success) {
+        localStorage.setItem("UserData", JSON.stringify(json));
+        setLoadingBarProgress(80);
+
+        setAuthStatus(true);
+        toast.success("Registered Successfully");
+
+        adduserdetail({
+          username: json.username,
+          description: "",
+          work: "",
+          education: "",
+          location: "",
+          profileImg: "",
+          bannerImg: "",
+          socialLinks: {
+            github: "",
+            linkedin: "",
+            instagram: "",
+            twitter: "",
+          },
+        });
+
+        getCurrentUser(JSON.parse(localStorage.getItem("UserData")).UserID);
+        RelevantModalStatus();
+        ModalStatus();
+      } else {
+        toast.error("Server error! Please try again!");
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      toast.error("An error occurred during registration");
+    } finally {
+      setLoadingBarProgress(100);
+
+      setTimeout(() => {
+        setLoadingBarProgress(0);
+      }, 500);
     }
   };
+
   return (
     <>
       <div className="container flex flex-col justify-center items-center max-sm:p-5 p-10 max-lg:py-20 max-lg:px-20 w-[50%] max-lg:w-[90%]">
-        <p className="font-bold text-black dark:text-darkTextMain">Sign Up</p>
+        <p className="font-bold text-black dark:text-darkTextMain">Register</p>
 
-        <button
-          className="button flex items-center border-2  border-gray-300 rounded-full dark:text-darkTextMain p-4 my-4  w-full"
-          onClick={() => goolesignin()}
-        >
-          <img
-            src="https://img.icons8.com/color/48/undefined/google-logo.png"
-            alt="google logo"
-            className="img pr-2 h-[30px]"
-          />
-          <p className="font-bold">Sign Up with Google</p>
-        </button>
-
-        <p className="my-2 dark:text-darkTextMain  text-center w-full mb-5">
-          or
-        </p>
+        <p className="my-2 dark:text-darkTextMain  text-center w-full mb-5"></p>
         <form className="form flex flex-col  w-full">
           <input
             type="text"
@@ -101,6 +143,7 @@ export default function Register({
             value={Registercreds.email}
             onChange={RegisterOnchange}
             name="email"
+            required
             className="border border-gray-300 bg-transparent dark:text-darkTextPrimary rounded-md p-2 mb-2 focus:outline-none dark:focus:border-secondary focus:border-primaryMain"
           />
           <input
@@ -109,11 +152,16 @@ export default function Register({
             onChange={RegisterOnchange}
             name="password"
             placeholder="Password"
+            required
             className="border border-gray-300 bg-transparent dark:text-darkTextPrimary rounded-md p-2 mb-2 focus:outline-none dark:focus:border-secondary focus:border-primaryMain"
           />
           <input
             type="password"
+            value={Registercreds.confirmPassword}
+            onChange={RegisterOnchange}
+            name="confirmPassword"
             placeholder="Confirm Password"
+            required
             className="border border-gray-300 bg-transparent dark:text-darkTextPrimary rounded-md p-2 mb-2 focus:outline-none dark:focus:border-secondary focus:border-primaryMain"
           />
           <input
@@ -134,10 +182,17 @@ export default function Register({
             className="text-primaryMain dark:text-secondary font-semibold"
             onClick={() => setSign(true)}
           >
-            Sign in
+            LogIn
           </a>
         </p>
       </div>
+
+      <LoadingBar
+        color="#2196F3"
+        height={5}
+        progress={loadingBarProgress}
+        onLoaderFinished={() => setLoadingBarProgress(0)}
+      />
     </>
   );
 }

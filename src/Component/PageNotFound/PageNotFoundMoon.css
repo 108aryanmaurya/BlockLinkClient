@@ -18,7 +18,7 @@
   box-shadow:
     inset -1.6em 0 0 0 #ccc,
     0 0 1em 0 #ccc;
-  z-index: 999999999;
+  z-index: 45;
 }
 .planet .crater {
   position: absolute;
@@ -921,8 +921,7 @@
 }
 #stars:after {
   content: " ";
-  position: absolute;
-  top: 2000px;
+  top: 1000px;
   width: 1px;
   height: 1px;
   border-radius: 100%;
@@ -1841,8 +1840,7 @@
 }
 #stars2:after {
   content: " ";
-  position: absolute;
-  top: 2000px;
+  top: 1000px;
   width: 2px;
   height: 2px;
   border-radius: 100%;
@@ -2161,8 +2159,7 @@
 }
 #stars3:after {
   content: " ";
-  position: absolute;
-  top: 2000px;
+  top: 1000px;
   width: 3px;
   height: 3px;
   border-radius: 100%;

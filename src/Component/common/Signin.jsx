@@ -11,10 +11,9 @@ export default function Signin() {
   };
   const [showRelevantModal, setShowRelevantModal] = useState(false);
   const RelevantModalStatus = () => {
-    console.log("hey123");
     setShowRelevantModal((showRelevantModal) => !showRelevantModal);
-    console.log(showRelevantModal);
   };
+
   return (
     <>
       {showAuthModal && (
@@ -30,6 +29,7 @@ export default function Signin() {
           RelevantModalStatus={RelevantModalStatus}
         ></RelevantModal>
       )}
+
       <div
         className="flex gap-2 text-lg leading-normal font-medium px-4"
         onClick={ModalStatus}

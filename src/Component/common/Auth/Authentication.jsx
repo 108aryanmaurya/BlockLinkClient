@@ -87,6 +87,7 @@ export default function Authentication(props) {
       localStorage.setItem("UserData", JSON.stringify(json));
       setAuthStatus(true);
       toast.success("Google Registration Succesfull");
+      RelevantModalStatus();
       adduserdetail({
         username: GoogleCreds.username,
         description: "",
@@ -103,7 +104,6 @@ export default function Authentication(props) {
         },
       });
       getCurrentUser(JSON.parse(localStorage.getItem("UserData")).UserID);
-      RelevantModalStatus();
       ModalStatus();
     } else {
       toast.error("Can't Register");
