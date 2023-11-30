@@ -100,7 +100,7 @@ export default function Comments({ blog }) {
           >
             <Signin />
           </button>
-          <div>
+          <div className="max-sm:pr-3 p-3 pr-6 rounded-lg max-sm:my-2  max-sm:p-1 ">
             {SingleBlogComment?.comment?.map((comment) => {
               return (
                 <>

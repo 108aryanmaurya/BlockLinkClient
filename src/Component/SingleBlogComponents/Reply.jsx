@@ -54,7 +54,7 @@ const Reply = ({ comment, show, onReplySubmit, setshow }) => {
             onChange={(e) => {
               getInput(e);
             }}
-            className="border-b-2 w-[63%] px-0  text-sm text-gray-900 bg-transparent border-0 focus:ring-0 focus:outline-none  dark:placeholder-gray-400 "
+            className="border-b-2 w-[63%] px-0  text-sm dark:text-white text-gray-900 bg-transparent border-0 focus:ring-0 focus:outline-none  dark:placeholder-gray-400 "
           ></textarea>
 
           <div className="w-[65%] mt-1 flex justify-end  gap-5 pr-2">

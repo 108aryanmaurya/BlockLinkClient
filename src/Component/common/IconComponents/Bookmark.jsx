@@ -46,7 +46,7 @@ const Bookmark = ({ setbookmarked, card }) => {
       });
       setbookmarkcount(await countBookmark(card._id));
 
-      toast.success("Bookmark deleted");
+      //("Bookmark deleted");
       setBookmarked(!Bookmarked);
     } else {
       await addbookmark({
@@ -55,7 +55,7 @@ const Bookmark = ({ setbookmarked, card }) => {
       });
       setbookmarkcount(await countBookmark(card._id));
 
-      toast.success("Bookmark addedd");
+      //("Bookmark addedd");
       setBookmarked(!Bookmarked);
     }
   };

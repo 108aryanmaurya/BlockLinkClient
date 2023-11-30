@@ -140,7 +140,7 @@ export default function LandingCards({ card }) {
           <button
             className="p-1 max-lg:hidden rounded-md text-[15px] text-white px-4 border-2 border-slate-200  dark:border-gray-700 hover:border-blue-300  bg-primaryMain dark:hover:border-blue-400"
             onClick={() => {
-              toast.success("Welcome to Blog");
+              //("Welcome to Blog");
 
               navigate(`/blogs/${card._id}`);
             }}

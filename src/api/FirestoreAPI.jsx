@@ -26,7 +26,7 @@ let connectionRef = collection(firestore, "connections");
 export const postStatus = (object) => {
   addDoc(postsRef, object)
     .then(() => {
-      toast.success("Post has been added successfully");
+      //("Post has been added successfully");
     })
     .catch((err) => {
       console.log(err);
@@ -103,7 +103,7 @@ export const editProfile = (userID, payload) => {
 
   updateDoc(userToEdit, payload)
     .then(() => {
-      toast.success("Profile has been updated successfully");
+      //("Profile has been updated successfully");
     })
     .catch((err) => {
       console.log(err);
@@ -177,7 +177,7 @@ export const updatePost = (id, status, postImage) => {
   let docToUpdate = doc(postsRef, id);
   try {
     updateDoc(docToUpdate, { status, postImage });
-    toast.success("Post has been updated!");
+    //("Post has been updated!");
   } catch (err) {
     console.log(err);
   }
@@ -187,7 +187,7 @@ export const deletePost = (id) => {
   let docToDelete = doc(postsRef, id);
   try {
     deleteDoc(docToDelete);
-    toast.success("Post has been Deleted!");
+    //("Post has been Deleted!");
   } catch (err) {
     console.log(err);
   }
@@ -199,7 +199,7 @@ export const addConnection = (userId, targetId) => {
 
     setDoc(connectionToAdd, { userId, targetId });
 
-    toast.success("Connection Added!");
+    //("Connection Added!");
   } catch (err) {
     console.log(err);
   }

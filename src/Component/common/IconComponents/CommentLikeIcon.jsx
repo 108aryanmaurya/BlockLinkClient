@@ -39,7 +39,7 @@ const CommentLikeIcon = ({ comment }) => {
       });
       setlikecount(await countcommentLike(comment._id));
 
-      toast.success("like deleted");
+      //("like deleted");
       setliked(!liked);
     } else {
       console.log("addin");
@@ -48,7 +48,7 @@ const CommentLikeIcon = ({ comment }) => {
         commentID: comment?._id,
       });
       setlikecount(await countcommentLike(comment._id));
-      toast.success("like addedd");
+      //("like addedd");
       setliked(!liked);
     }
   };

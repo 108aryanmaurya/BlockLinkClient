@@ -43,7 +43,7 @@ export default function BlogCard({ card, isBookmark, isLiked }) {
         postID: card?._id,
       });
 
-      toast.success("Bookmark deleted");
+      //("Bookmark deleted");
       setbookmarked(!bookmarked);
     } else {
       await addbookmark({
@@ -51,7 +51,7 @@ export default function BlogCard({ card, isBookmark, isLiked }) {
         postID: card?._id,
       });
 
-      toast.success("Bookmark addedd");
+      //("Bookmark addedd");
       setbookmarked(!bookmarked);
     }
   };
@@ -73,7 +73,7 @@ export default function BlogCard({ card, isBookmark, isLiked }) {
 
   const onDelete = async () => {
     await deletenote(card?._id);
-    toast.success("Blog Deleted");
+    //("Blog Deleted");
   };
 
   useEffect(() => {
@@ -173,7 +173,7 @@ export default function BlogCard({ card, isBookmark, isLiked }) {
               <button
                 className="p-1 rounded-md text-[15px] text-white px-4 border-2 border-slate-200 dark:border-gray-700 hover:border-blue-300  bg-primaryMain dark:hover:border-blue-400"
                 onClick={() => {
-                  toast.success("Welcome to Blog");
+                 //("Welcome to Blog");
 
                   navigate(`/blogs/${card._id}`);
                 }}

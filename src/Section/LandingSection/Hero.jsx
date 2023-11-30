@@ -63,7 +63,7 @@ const Hero = () => {
                     <p
                       className="text-lg max-lg:text-[15px] ml-2 font-semibold font-palanquin text-gray-700 dark:text-darkTextMain cursor-pointer"
                       onClick={() => {
-                        toast.success("Welcome to Profile");
+                        //("Welcome to Profile");
 
                         navigate(`/profile/${randomBlog?.author?.username}`);
                       }}

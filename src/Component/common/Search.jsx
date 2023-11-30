@@ -106,7 +106,7 @@ export default function Search() {
                 <li
                   key={index}
                   onClick={() => {
-                    toast.success("Welcome to Blog");
+                    //("Welcome to Blog");
 
                     navigate(`/blogs/${card?._id}`);
                   }}

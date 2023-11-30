@@ -47,7 +47,7 @@ export default function PasswordUpdate() {
       console.log(data);
 
       if (response.ok) {
-        toast.success("Password updated successfully");
+        //("Password updated successfully");
         getCurrentUser(JSON.parse(localStorage.getItem("UserData")).UserID);
       } else {
         toast.error(data.error);
@@ -73,7 +73,7 @@ export default function PasswordUpdate() {
       console.log(data);
 
       if (response.ok) {
-        toast.success("Password set successfully");
+        //("Password set successfully");
         getCurrentUser(JSON.parse(localStorage.getItem("UserData")).UserID);
       } else {
         toast.error(data.error);

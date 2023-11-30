@@ -69,7 +69,7 @@ const RelevantUpdate = (props) => {
       const data = await response.json();
 
       if (response.ok) {
-        toast.success("Updated successfully");
+        //("Updated successfully");
         getCurrentUser(JSON.parse(localStorage.getItem("UserData")).UserID);
         if (firstSignUp) {
           RelevantModalStatus();
