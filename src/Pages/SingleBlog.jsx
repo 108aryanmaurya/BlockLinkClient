@@ -14,7 +14,7 @@ import { Comments } from "../Component/common";
 import TopicBar from "../Component/SingleBlogComponents/TopicBar";
 import CommentSkeleton from "../Component/SkeletonLoaders/SingleBlogPageSkeleton/CommentSkeleton";
 
-const SingleBlog = ({ blog1, loading }) => {
+const SingleBlog = ({ blog1, ispreview, loading }) => {
   const [scrollDirection, setScrollDirection] = useState("up");
   const [prevScrollPos, setPrevScrollPos] = useState(0);
 
@@ -67,7 +67,9 @@ const SingleBlog = ({ blog1, loading }) => {
   return (
     <>
       <section
-        className="flex bg-slate-50 dark:text-white dark:bg-darkBgMain flex-col justify-center items-center"
+        className={`flex w-[100%]   bg-slate-50 ${
+          ispreview && "w-[77%]   m-auto "
+        } dark:text-white dark:bg-darkBgMain flex-col justify-center items-center`}
         ref={pageRef}
       >
         {loading ? <TopSectionSkeleton /> : <TopSection blog1={blog1} />}
@@ -91,7 +93,11 @@ const SingleBlog = ({ blog1, loading }) => {
             {loading ? <LeftSectionSkeleton /> : <LeftSection blog={blog1} />}
           </div>
           <div className="w-full ">
-            {loading ? <RightSectionSkeleton /> : <RightSection blog={blog1} />}
+            {loading ? (
+              <RightSectionSkeleton />
+            ) : (
+              !ispreview && <RightSection blog={blog1} />
+            )}
           </div>
         </div>
         <div
@@ -101,17 +107,20 @@ const SingleBlog = ({ blog1, loading }) => {
           {loading ? (
             <CommentSkeleton></CommentSkeleton>
           ) : (
-            <Comments blog={blog1} />
+            !ispreview && <Comments blog={blog1} />
           )}
         </div>
       </section>
 
-      <TopicBar
-        scrollToCommentSection={scrollToCommentSection}
-        navbarRef={navbarRef}
-        card={blog1}
-        loading={loading}
-      />
+      {
+        <TopicBar
+          ispreview={ispreview}
+          scrollToCommentSection={scrollToCommentSection}
+          navbarRef={navbarRef}
+          card={blog1}
+          loading={loading}
+        />
+      }
     </>
   );
 };

@@ -4,7 +4,13 @@ import ShareModal from "./ShareModal";
 import Bookmark from "../common/IconComponents/Bookmark";
 import Like from "../common/IconComponents/Like";
 
-const TopicBar = ({ navbarRef, loading, card, scrollToCommentSection }) => {
+const TopicBar = ({
+  navbarRef,
+  ispreview,
+  loading,
+  card,
+  scrollToCommentSection,
+}) => {
   const [shareModalVisible, setShareModalVisible] = useState(false);
 
   const sharemodal = () => {
@@ -21,7 +27,9 @@ const TopicBar = ({ navbarRef, loading, card, scrollToCommentSection }) => {
 
       <section
         ref={navbarRef}
-        className="fixed  flex justify-between   items-center border-b-[1px] border-gray-200 dark:border-darkBorderAll bg-white dark:bg-darkBgMain dark:text-white w-full transition-all ease-in-out duration-300 delay-300"
+        className={`fixed ${
+          ispreview && "hidden"
+        }  flex justify-between items-center border-b-[1px] border-gray-200 dark:border-darkBorderAll bg-white dark:bg-darkBgMain dark:text-white w-full transition-all ease-in-out duration-300 delay-300`}
       >
         <div className="pl-10  max-sm:pl-3 items-center flex  dark:hover:text-secondary  py-3 max-sm:py-3 tracking-wider ">
           <div className=" pr-3 max-sm:pr-2 border-gray-400 border-r-2">

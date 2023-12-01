@@ -52,7 +52,7 @@ const CommentBox = ({ comment, depth, maxdepth }) => {
                 alt="commentor"
               />
             </div>
-            <div className=" max-sm:flex-col">
+            <div className=" flex gap-2  max-sm:flex-col">
               <p className="max-sm:text-[13px]">{comment?.author?.username}</p>
 
               <p className="text-[13px] max-sm:text-[11px] font-semibold dark:text-gray-300 text-gray-500">

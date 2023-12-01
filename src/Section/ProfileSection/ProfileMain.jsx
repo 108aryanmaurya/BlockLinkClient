@@ -176,6 +176,7 @@ export default function ProfileMain({ UserProfile, UserMatch }) {
                     <a
                       href={UserDetails?.socialLinks?.linkedin}
                       target="_blank"
+                      rel="noreferrer"
                       className="text-gray-500 dark:text-white hover:text-primaryMain text-2xl dark:hover:text-secondary"
                     >
                       <i className="fa fa-linkedin"></i>
@@ -185,6 +186,7 @@ export default function ProfileMain({ UserProfile, UserMatch }) {
                     <a
                       href={UserDetails?.socialLinks?.github}
                       target="_blank"
+                      rel="noreferrer"
                       className="text-gray-500 dark:text-white hover:text-primaryMain text-2xl dark:hover:text-secondary"
                     >
                       <i className="fa fa-github"></i>

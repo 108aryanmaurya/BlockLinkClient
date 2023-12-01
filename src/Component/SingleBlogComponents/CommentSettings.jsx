@@ -15,8 +15,13 @@ const CommentSettings = ({ comment, setedit, edit }) => {
   };
   useEffect(() => {}, [edit]);
   return (
-    <div>
-      {" "}
+    <div className="mr-5">
+      {/* <div
+        id="myModal"
+        className="fixed z-50 inset-0 w-full h-full  transition-all ease-in-out duration-300 "
+        ref={modalRef}
+        onClick={handleOutsideClick}
+      ></div>*/}
       {comment?.author?._id ==
         JSON.parse(localStorage.getItem("UserData")).userDetailId && (
         <button
@@ -42,12 +47,6 @@ const CommentSettings = ({ comment, setedit, edit }) => {
         {isDropdownVisible && (
           <div className="relative">
             <div
-              id="myModal"
-              className="fixed z-50 inset-0 w-full h-full  transition-all ease-in-out duration-300 "
-              ref={modalRef}
-              onClick={handleOutsideClick}
-            ></div>
-            <div
               id="dropdownAvatarName"
               className="z-0 block absolute top-[-10px] right-[-20px]  max-sm:right-[0px] max-sm:w-14 bg-white divide-y divide-gray-100 max-sm:rounded-md rounded-lg shadow-sm w-16 dark:bg-darkBgPrimary dark:divide-gray-600 border dark:border-gray-600"
             >
@@ -58,13 +57,13 @@ const CommentSettings = ({ comment, setedit, edit }) => {
                 <li>
                   <span
                     to="/"
-                    className="block cursor-pointer max-sm:px-1 max-sm:py-1 px-3 pt-2 pb-1 max-sm:rounded-md hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    className="flex items-center justify-center cursor-pointer rounded-lg max-sm:px-1 max-sm:py-1 px-3  py-1 max-sm:rounded-md hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     onClick={() => {
-                      console.log(edit);
+                      console.log("edit");
                       if (edit == false) {
                         setedit(true);
                       }
-                      //   navigate(`/updateblog/${card._id}`);
+                      // navigate(`/updateblog/${card._id}`);
                     }}
                   >
                     Edit
@@ -73,7 +72,7 @@ const CommentSettings = ({ comment, setedit, edit }) => {
                 <li>
                   <span
                     // onClick={onDelete}
-                    className="block cursor-pointer max-sm:px-1 max-sm:py-1 px-3 pb-2 max-sm:rounded-md hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    className="rounded-lg flex items-center justify-center  cursor-pointer max-sm:px-1 max-sm:py-1 px-3  py-1 max-sm:rounded-md hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
                     Delete
                   </span>
