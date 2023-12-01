@@ -47,7 +47,7 @@ export default function SocialUpdate() {
       });
 
       if (response.ok) {
-        toast.success("Social links updated");
+        //("Social links updated");
         getCurrentUser(JSON.parse(localStorage.getItem("UserData")).UserID);
       } else {
         toast.error("Failed to update social links");

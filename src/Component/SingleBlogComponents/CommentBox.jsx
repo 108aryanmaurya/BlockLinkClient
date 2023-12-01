@@ -38,7 +38,7 @@ const CommentBox = ({ comment, depth, maxdepth }) => {
 
   return (
     <section className="">
-      <article className="p-6 max-sm:p-3 text-base mt-2 bg-white rounded-lg dark:bg-darkBgPrimary">
+      <article className="pl-6 max-sm:pl-3 py-3 rounded-lg  bg-white  dark:bg-darkBgPrimary max-sm:rounded-sm  max-sm:mt-2 text-base mt-3 ">
         <footer className=" flex justify-between items-center mb-2">
           <div className="flex items-center">
             <div className="inline-flex items-center mr-[7px] text-sm text-gray-900 dark:text-white font-semibold">
@@ -52,7 +52,7 @@ const CommentBox = ({ comment, depth, maxdepth }) => {
                 alt="commentor"
               />
             </div>
-            <div className=" max-sm:flex-col">
+            <div className=" flex gap-2  max-sm:flex-col">
               <p className="max-sm:text-[13px]">{comment?.author?.username}</p>
 
               <p className="text-[13px] max-sm:text-[11px] font-semibold dark:text-gray-300 text-gray-500">

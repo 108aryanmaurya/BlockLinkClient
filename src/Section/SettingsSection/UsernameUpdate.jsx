@@ -75,7 +75,7 @@ export default function UsernameUpdate() {
         }
         const data = await response.json();
         console.log(data);
-        toast.success("Username updated to " + data.username);
+        "Username updated to " + data.username;
         getCurrentUser(JSON.parse(localStorage.getItem("UserData")).UserID);
       } catch (error) {
         console.error(error);

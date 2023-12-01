@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const AuthState = (props) => {
   const host = "https://bloglinkbackend-it3i.onrender.com";
+
   const [UserDetails, setUserDetails] = useState();
   const [AuthStatus, setAuthStatus] = useState(false);
   const [UserProfile, setUserProfile] = useState();

@@ -47,7 +47,7 @@ export default function FeedbackModal({ FeedbackMenu }) {
       const result = await response.json();
       console.log("Server response:", result);
       if (result.success) {
-        toast.success("Thank You for your Feedback!!");
+        //("Thank You for your Feedback!!");
 
         setFeedbackData({
           feedbackType: "",

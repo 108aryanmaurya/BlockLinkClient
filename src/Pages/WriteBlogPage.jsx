@@ -75,7 +75,7 @@ const WriteBlog = ({ UserDetails }) => {
       console.log(blogs);
       // await addblogCard(blogs);
       await addblogcontent(blogs);
-      toast.success("Your blog added Successfully!");
+      //("Your blog added Successfully!");
     } catch (error) {
       toast.error("Error occured while adding your blog");
     }

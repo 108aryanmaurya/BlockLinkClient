@@ -38,7 +38,6 @@ const Like = ({ card }) => {
       });
       setlikecount(await countLike(card._id));
 
-      toast.success("like deleted");
       setliked(!liked);
     } else {
       await addlike({
@@ -46,7 +45,6 @@ const Like = ({ card }) => {
         postID: card?._id,
       });
       setlikecount(await countLike(card._id));
-      toast.success("like addedd");
       setliked(!liked);
     }
   };

@@ -79,7 +79,7 @@ const UpdateBlog = ({ UserDetails, blog2 }) => {
       console.log({ blogs });
       updateblog(blogs, blog2[0]._id);
       console.log("Saved to Database");
-      toast.success("Blog Updated Successfully");
+     //("Blog Updated Successfully");
     } catch (error) {
       toast.error("Error occured while adding your blog");
     }
