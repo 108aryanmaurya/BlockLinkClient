@@ -22,7 +22,6 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
     try {
-      console.log(req.body)
       let success = false;
       let user = await User.findOne({ email: req.body.email });
       if (user) {
@@ -41,10 +40,11 @@ router.post(
         password: secPass,
         email: req.body.email,
         isGoogleSignup: false,
+        userDetailId: "",
       });
       const data = {
         user: {
-          id: user._id,
+          id: user.id,
         },
       };
       const authtoken = jwt.sign(data, JWT_SECRET);
@@ -53,9 +53,10 @@ router.post(
       res.json({
         success: success,
         authtoken: authtoken,
-        UserID: user._id,
+        UserID: user.id,
         username: user.username,
         isGoogleSignup: user.isGoogleSignup,
+        userDetailId: user.userDetailId,
       });
     } catch (error) {
       console.error(error.message);
@@ -69,9 +70,7 @@ router.post(
 );
 router.post("/addUserDetailIdToUsers", async (req, res) => {
   try {
-
     const { userID, userDetailId } = req.body;
-    console.log("Username: ", userID);
     const user = await User.findById(userID);
 
     if (!user) {
@@ -326,7 +325,6 @@ router.post("/adduserdetail", fetchuser, async (req, res) => {
       bannerImg,
       socialLinks,
     } = req.body;
-    console.log(username);
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
