@@ -22,6 +22,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
     try {
+      console.log(req.body)
       let success = false;
       let user = await User.findOne({ email: req.body.email });
       if (user) {
@@ -43,7 +44,7 @@ router.post(
       });
       const data = {
         user: {
-          id: user.id,
+          id: user._id,
         },
       };
       const authtoken = jwt.sign(data, JWT_SECRET);
@@ -52,7 +53,7 @@ router.post(
       res.json({
         success: success,
         authtoken: authtoken,
-        UserID: user.id,
+        UserID: user._id,
         username: user.username,
         isGoogleSignup: user.isGoogleSignup,
       });
@@ -68,6 +69,7 @@ router.post(
 );
 router.post("/addUserDetailIdToUsers", async (req, res) => {
   try {
+
     const { userID, userDetailId } = req.body;
     console.log("Username: ", userID);
     const user = await User.findById(userID);

@@ -71,6 +71,7 @@ router.post(
         return res.status(400).json({ errors: errors.array() });
       }
 
+
       const blog = new blogCard({
         Title,
         postID,
@@ -126,10 +127,12 @@ router.get("/fetchallblogCards", async (req, res) => {
 
 // ROUTE 2: Put all a blog in the database : POST "/api/blogs/addblog"
 
-router.get("/filterblog", async (req, res) => {
+router.get("/filterblog/:userID", async (req, res) => {
   try {
-    const userID = req.query.userID;
-    const blogs = await blogCard.find({ userID: userID });
+
+    const userID = req.params.userID;
+    // console.log(userIDa);
+    const blogs = await blogCard.find({ userID: userID }).populate('author');
 
     //   console.log(req.user.id)
 

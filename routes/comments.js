@@ -9,7 +9,6 @@ const Userdetail = require("../models/UserDetails");
 const { default: mongoose } = require("mongoose");
 const Like = require("../models/LikeSchema");
 const CommentLike = require("../models/CommentLike");
-
 // ROUTE 3: Put all a blog in the database : POST "/api/blogs/addblog"
 router.post(
   "/addcomment",
